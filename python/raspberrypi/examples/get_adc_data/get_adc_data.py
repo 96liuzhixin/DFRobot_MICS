@@ -6,8 +6,8 @@
   @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
   @licence     The MIT License (MIT)
   @author      [ZhixinLiu](zhixin.liu@dfrobot.com)
-  version  V1.1
-  date  2021-04-20
+  version  V1.2
+  date  2021-06-18
   @get from https://www.dfrobot.com
   @url https://github.com/DFRobot/DFRobot_MicsSensor
 """
@@ -21,13 +21,13 @@ I2C_BUS          = 0x01            # default use I2C1
 '''
    # The first  parameter is to select i2c0 or i2c1
    # The second parameter is the i2c device address
-   # The default address for i2c is ADDRESS_3
+   # The default address for i2c is ADDRESS_0
    # ADDRESS_0                 = 0x75
    # ADDRESS_1                 = 0x76
    # ADDRESS_2                 = 0x77
    # ADDRESS_3                 = 0x78
 '''
-mics = DFRobot_MICS_I2C (I2C_BUS ,ADDRESS_3)
+mics = DFRobot_MICS_I2C (I2C_BUS ,ADDRESS_0)
 
 def setup():
   '''

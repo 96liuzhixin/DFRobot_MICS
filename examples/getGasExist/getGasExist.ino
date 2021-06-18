@@ -6,25 +6,24 @@
   * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
   * @licence     The MIT License (MIT)
   * @author      ZhixinLiu(zhixin.liu@dfrobot.com)
-  * @version     V1.1
-  * @date        2021-04-19
+  * @version     V1.2
+  * @date        2021-06-18
   * @get         from https://www.dfrobot.com
   * @url         https://github.com/dfrobot/DFRobot_MICS
   */
-
 #include "DFRobot_MICS.h"
 
 #define CALIBRATION_TIME   3                      // Default calibration time is three minutes
 
 // When using I2C communication, use the following program to construct an object by DFRobot_MICS_I2C
 /**!
-    iic slave Address, The default is ADDRESS_3
+    iic slave Address, The default is ADDRESS_0
        ADDRESS_0               0x75             // i2c device address
        ADDRESS_1               0x76
        ADDRESS_2               0x77
        ADDRESS_3               0x78
 */
-#define Mics_I2C_ADDRESS ADDRESS_3
+#define Mics_I2C_ADDRESS ADDRESS_0
 DFRobot_MICS_I2C mics(&Wire, Mics_I2C_ADDRESS);
 
 // When using the Breakout version, use the following program to construct an object from DFRobot_MICS_ADC
@@ -87,7 +86,7 @@ void loop()
       NO       = 0x09  (Nitric Oxide)
       NO2      = 0x0A  (Nitrogen Dioxide)
   */
-  int8_t gasFlag = mics.getGasExist(CO);
+  int8_t gasFlag = mics.getGasExist(C2H5OH);
   if(gasFlag == EXIST){
     Serial.println("The gas exists!");
   }else{

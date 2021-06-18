@@ -6,8 +6,8 @@
   * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
   * @licence     The MIT License (MIT)
   * @author      ZhixinLiu(zhixin.liu@dfrobot.com)
-  * @version     V1.1
-  * @date        2021-04-19
+  * @version     V1.2
+  * @date        2021-06-18
   * @get         from https://www.dfrobot.com
   * @url         https://github.com/dfrobot/DFRobot_MICS
   */
@@ -17,13 +17,13 @@
 
 // When using I2C communication, use the following program to construct an object by DFRobot_MICS_I2C
 /**!
-    iic slave Address, The default is ADDRESS_3
+    iic slave Address, The default is ADDRESS_0
        ADDRESS_0               0x75             // i2c device address
        ADDRESS_1               0x76
        ADDRESS_2               0x77
        ADDRESS_3               0x78
 */
-#define Mics_I2C_ADDRESS ADDRESS_3
+#define Mics_I2C_ADDRESS ADDRESS_0
 DFRobot_MICS_I2C mics(&Wire, Mics_I2C_ADDRESS);
 
 // When using the Breakout version, use the following program to construct an object from DFRobot_MICS_ADC
@@ -75,14 +75,14 @@ void loop()
     MICS-4514 You can get all gas concentration
     MICS-5524 You can get the concentration of CH4, C2H5OH, H2, NH3, CO
     MICS-2714 You can get the concentration of NO2
-      Methane          (CH4)    (1000 - 25000)PPM
-      Ethanol          (C2H5OH) (10   - 500)PPM
-      Hydrogen         (H2)     (1    - 1000)PPM
-      Ammonia          (NH3)    (1    - 500)PPM
-      Carbon Monoxide  (CO)     (1    - 1000)PPM
-      Nitrogen Dioxide (NO2)    (0.1  - 10)PPM
+      CO       = 0x01  (Carbon Monoxide)  (1    - 1000)PPM
+      CH4      = 0x02  (Methane)          (1000 - 25000)PPM
+      C2H5OH   = 0x03  (Ethanol)          (10   - 500)PPM
+      H2       = 0x06  (Hydrogen)         (1    - 1000)PPM
+      NH3      = 0x08  (Ammonia)          (1    - 500)PPM
+      NO2      = 0x0A  (Nitrogen Dioxide) (0.1  - 10)PPM
   */
-  float gasdata = mics.getGasData(H2);
+  float gasdata = mics.getGasData(C2H5OH);
   Serial.print(gasdata,1);
   Serial.println(" PPM");
   delay(1000);

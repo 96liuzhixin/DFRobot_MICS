@@ -5,8 +5,8 @@
   @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
   @licence     The MIT License (MIT)
   @author      [ZhixinLiu](zhixin.liu@dfrobot.com)
-  version  V1.1
-  date  2021-04-19
+  version  V1.2
+  date  2021-06-18
   @get from https://www.dfrobot.com
   @url https://github.com/DFRobot/DFRobot_MicsSensor
 """

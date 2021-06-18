@@ -34,6 +34,7 @@ Run the program:
 $> python get_gas_exist.py
 $> python get_gas_ppm.py
 $> python get_adc_data.py
+$> python enable_power.py
 ```
 
 ## Methods
@@ -89,6 +90,7 @@ $> python get_adc_data.py
 
 - January 13, 2021 - Version 1.0 released.
 - April   20, 2021 - Version 1.1 released.  add breakout version
+- June    18, 2021 - Version 1.2 released.  add demo and Modify comments
 
 ## Credits
 

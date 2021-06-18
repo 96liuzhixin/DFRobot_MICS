@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 """ 
-  @file get_gas_ppm.py
-  @brief Read gas concentration unit(PPM).
+  @file enable_power.py
+  @brief Enable the power, and the information is printed on the serial port.
   @n step: we must first determine the i2c device address, will dial the code switch A0, A1 (ADDRESS_0 for [0 0]), (ADDRESS_1 for [1 0]), (ADDRESS_2 for [0 1]), (ADDRESS_3 for [1 1]).
   @n       Then wait for the calibration to succeed.
   @n       The calibration time is approximately three minutes.
@@ -31,7 +31,7 @@ I2C_BUS          = 0x01            # default use I2C1
 '''
 mics = DFRobot_MICS_I2C (I2C_BUS ,ADDRESS_0)
 
-def setup():
+def loop():
   '''
     # Gets the power mode of the sensor
     # The sensor is in sleep mode when power is on,so it needs to wake up the sensor. 
@@ -39,33 +39,12 @@ def setup():
   '''
   if mics.get_power_mode() == SLEEP_MODE:
     mics.wakeup_mode()
-    print "wake up sensor success"
+    print "sleep mode,   wake up sensor success!"
   else:
-    print "the sensor is wake up mode"
-
-  '''
-    # Do not touch the sensor probe when preheating the sensor.
-    # Place the sensor in clean air.
-    # The default calibration time is 3 minutes.
-  '''
-  mics.warm_up_time(CALIBRATION_TIME)
-
-def loop():
-  '''
-    # Type of detection gas
-      # CO       = 0x01  (Carbon Monoxide)
-      # CH4      = 0x02  (Methane)
-      # C2H5OH   = 0x03  (Ethanol)
-      # H2       = 0x06  (Hydrogen)
-      # NH3      = 0x08  (Ammonia)
-      # NO2      = 0x0A  (Nitrogen Dioxide)
-  '''
-  gas_concentration = mics.get_gas_ppm(C2H5OH)
-  print "gas concentration is %.1f"%gas_concentration
-  time.sleep(1)
-  #mics.sleep_mode()
+    mics.sleep_mode()
+    print "wake up mode, sleep sensor success!"
+  time.sleep(3)
 
 if __name__ == "__main__":
-  setup()
   while True:
     loop()

@@ -117,6 +117,7 @@ Download the zip file first to use this library and uncompress it to a folder na
 
 - January 13, 2021 - Version 1.0 released.
 - April   20, 2021 - Version 1.1 released.  add breakout version
+- June    18, 2021 - Version 1.2 released.  add demo and Modify comments
 
 ## Credits
 
